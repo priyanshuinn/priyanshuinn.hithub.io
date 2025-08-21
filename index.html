@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priyanshu Singh - Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            transition: background-color 0.3s ease;
+        }
+        .container-bg {
+            background-color: #1e293b;
+        }
+        .text-gradient {
+            background: linear-gradient(90deg, #60a5fa, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        .profile-pulse:hover {
+            animation: pulse 1s infinite;
+        }
+
+        /* Modal specific styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #1e293b;
+            margin: 10% auto;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+            animation: fadeIn 0.5s ease-out;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            color: #e2e8f0;
+            font-size: 2rem;
+            font-weight: bold;
+            transition: color 0.2s ease;
+        }
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #ef4444;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 sm:p-8">
+
+    <!-- Main Container -->
+    <div class="max-w-4xl mx-auto container-bg shadow-2xl rounded-2xl p-6 sm:p-10 animate-fadeIn">
+        
+        <!-- Profile Section -->
+        <section class="flex flex-col sm:flex-row items-center sm:items-start space-y-6 sm:space-y-0 sm:space-x-10 mb-12 pb-8 border-b-2 border-slate-700">
+            <div class="flex-shrink-0 profile-pulse">
+                <div class="w-32 h-32 bg-slate-600 rounded-full flex items-center justify-center overflow-hidden border-4 border-slate-500">
+                    <svg class="h-20 w-20 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.261 2.376 11.996 5.993zM16.012 10.998a4.006 4.006 0 100-8.012 4.006 4.006 0 000 8.012z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="text-center sm:text-left">
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-white leading-tight">Priyanshu Singh</h1>
+                <h2 class="text-xl sm:text-2xl font-semibold text-sky-400 mt-1">Full Stack Developer</h2>
+                <p class="mt-4 text-slate-400 max-w-lg mx-auto sm:mx-0 leading-relaxed">
+                    Dedicated full-stack software engineer with over 3 years of experience developing scalable and efficient web applications. Proficient in Python, Django, REST APIs, Next.js, ReactJS, and AWS. Possessing strong problem-solving and communication skills.
+                </p>
+                <div class="mt-6 flex flex-wrap justify-center sm:justify-start gap-4 text-slate-400">
+                    <a href="mailto:priyanshu.singh794@gmail.com" class="hover:text-sky-400 transition-colors flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                        priyanshu.singh794@gmail.com
+                    </a>
+                    <a href="https://linkedin.com/in/priyanshu-singhh" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition-colors flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Freelance Projects Section -->
+        <section class="mb-12 pb-8 border-b-2 border-slate-700">
+            <h3 class="text-3xl font-bold text-gradient mb-8">Freelance Projects</h3>
+
+            <!-- AuraVMS Project -->
+            <div class="card bg-slate-800 p-6 rounded-xl shadow-lg mb-6">
+                <h4 class="text-2xl font-semibold text-white">AuraVMS</h4>
+                <a href="https://www.auravms.com/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline transition-colors block mt-1 mb-3">https://www.auravms.com/</a>
+                <p class="text-slate-300 leading-relaxed mb-4">
+                    You can use AuraVMS to request quotations from your suppliers. Suppliers will receive links in Email and WhatsApp (based on your plan) to quote on your requests. Once they provide a quote, you will be able to see and compare all quotes on your screen. Once you finalize a quote, you can place order against that on AuraVMS itself, and the supplier will receive all essential details regarding your order.
+                </p>
+                <div class="flex flex-wrap items-center gap-2 text-sm text-slate-400">
+                    <span class="font-medium text-white">Tech Stack:</span>
+                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full">Django/Python</span>
+                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full">React.js</span>
+                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full">AWS</span>
+                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full">PostgreSQL</span>
+                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full">Redis</span>
+                </div>
+            </div>
+
+            <!-- Zemicon Project -->
+            <div class="card bg-slate-800 p-6 rounded-xl shadow-lg">
+                <h4 class="text-2xl font-semibold text-white">Zemicon</h4>
+                <a href="https://zemicon.in/" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline transition-colors block mt-1 mb-3">https://zemicon.in/</a>
+                <p class="text-slate-300 leading-relaxed mb-4">
+                    Zemicon Electronics combines decades of offline distribution expertise with cutting-edge digital innovations. We excel in providing top-quality components through streamlined, tech-driven supply chain solutions, ensuring efficiency and reliability at every step.
+                </p>
+                <div class="flex flex-wrap items-center gap-2 text-sm text-slate-400">
+                    <span class="font-medium text-white">Tech Stack:</span>
+                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full">Django/Python</span>
+                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full">Next.js</span>
+                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full">AWS</span>
+                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full">Elasticsearch</span>
+                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full">PostgreSQL</span>
+                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full">Redis</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gemini API Feature Section -->
+        <section class="mb-12 pb-8 border-b-2 border-slate-700">
+            <h3 class="text-3xl font-bold text-gradient mb-8">Work with me</h3>
+            <p class="text-slate-400 text-lg mb-6">
+                Ready to start a project? Click the button below to get a head start on your project brief. Describe your project in a few words and I'll use AI to help you draft a detailed proposal.
+            </p>
+            <button id="openModalBtn" class="bg-sky-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-sky-500 transition-colors shadow-lg">
+                Generate Project Brief ✨
+            </button>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section class="mb-12 pb-8 border-b-2 border-slate-700">
+            <h3 class="text-3xl font-bold text-gradient mb-8">Professional Experience</h3>
+
+            <!-- Nivaancare -->
+            <div class="card bg-slate-800 p-6 rounded-xl shadow-lg mb-6">
+                <div class="flex justify-between items-baseline mb-1">
+                    <h4 class="text-xl font-semibold text-white">Fullstack Software Development Engineer</h4>
+                    <span class="text-sm text-slate-400">Mar 2025 - Present</span>
+                </div>
+                <p class="text-slate-500 font-medium mb-2">Nivaancare, Gurugram</p>
+                <ul class="list-disc list-inside mt-2 text-slate-300 space-y-2 leading-relaxed">
+                    <li>Automated lead processing workflows within Zoho CRM, implementing Customer Lifecycle Management (CLM) strategies that reduced customer drop-offs by 20%.</li>
+                    <li>Optimized Electronic Health Record (EHR) tool performance for high traffic and data volumes through multithreading, asynchronous API calls, database indexing, and AWS ALB integration.</li>
+                    <li>Led cross-functional collaboration with product/UX/backend teams to deliver high-quality software, optimizing performance, and fostering continuous improvement through code reviews.</li>
+                </ul>
+            </div>
+
+            <!-- Medikabazaar -->
+            <div class="card bg-slate-800 p-6 rounded-xl shadow-lg mb-6">
+                <div class="flex justify-between items-baseline mb-1">
+                    <h4 class="text-xl font-semibold text-white">Fullstack Software Development Engineer</h4>
+                    <span class="text-sm text-slate-400">Jun 2022 - Mar 2025</span>
+                </div>
+                <p class="text-slate-500 font-medium mb-2">Medikabazaar, Gurugram</p>
+                <ul class="list-disc list-inside mt-2 text-slate-300 space-y-2 leading-relaxed">
+                    <li>Spearheaded the creation of the company's e-commerce B2B platform, achieving over 300 crores rupees in revenue in the past year.</li>
+                    <li>Significantly improved system security by deploying rate limiting and IP blacklisting techniques to effectively prevent and mitigate DDoS attacks.</li>
+                    <li>Implemented a robust CI/CD pipeline using Terraform and Jenkins to automate the deployment of frontend and backend codebases.</li>
+                    <li>Developed a hospital-centric mobile app to streamline medical equipment maintenance.</li>
+                </ul>
+            </div>
+
+            <!-- Farzi Engineer -->
+            <div class="card bg-slate-800 p-6 rounded-xl shadow-lg">
+                <div class="flex justify-between items-baseline mb-1">
+                    <h4 class="text-xl font-semibold text-white">Software Development Engineer</h4>
+                    <span class="text-sm text-slate-400">Jan 2022 - Jun 2022</span>
+                </div>
+                <p class="text-slate-500 font-medium mb-2">Farzi Engineer, Remote</p>
+                <ul class="list-disc list-inside mt-2 text-slate-300 space-y-2 leading-relaxed">
+                    <li>Improved the B2C app by integrating comprehensive order management, tracking, and notification services.</li>
+                    <li>Provided SQL-powered data insights to clients and collaborated on data needs.</li>
+                    <li>Troubleshot production and staging bugs and conducted code reviews.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills & Contact Section -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div>
+                <h3 class="text-3xl font-bold text-gradient mb-8">Skills</h3>
+                <div class="flex flex-wrap gap-2 text-sm">
+                    <span class="bg-slate-600 text-white px-3 py-1 rounded-full">Python</span>
+                    <span class="bg-slate-600 text-white px-3 py-1 rounded-full">JavaScript</span>
+                    <span class="bg-slate-600 text-white px-3 py-1 rounded-full">Java</span>
+                    <span class="bg-slate-600 text-white px-3 py-1 rounded-full">React.js</span>
+                    <span class="bg-slate-600 text-white px-3 py-1 rounded-full">Next.js</span>
+                    <span class="bg-slate-600 text-white px-3 py-1 rounded-full">Django</span>
+                    <span class="bg-slate-600 text-white px-3 py-1 rounded-full">PostgreSQL</span>
+                    <span class="bg-slate-600 text-white px-3 py-1 rounded-full">AWS</span>
+                    <span class="bg-slate-600 text-white px-3 py-1 rounded-full">Redis</span>
+                    <span class="bg-slate-600 text-white px-3 py-1 rounded-full">Elasticsearch</span>
+                    <span class="bg-slate-600 text-white px-3 py-1 rounded-full">Tailwind CSS</span>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+
+    <!-- Gemini API Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 class="text-3xl font-bold text-gradient mb-6">Generate a Project Brief</h3>
+            <p class="text-slate-400 mb-4">Tell me about your project idea, and I'll generate a detailed project brief for you based on my skills.</p>
+            <textarea id="projectIdeaInput" class="w-full h-32 p-4 mb-4 rounded-lg bg-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-shadow" placeholder="e.g., An e-commerce platform for handcrafted goods with a custom recommendation engine and a secure payment gateway."></textarea>
+            <button id="generateBriefBtn" class="w-full bg-sky-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-sky-500 transition-colors shadow-lg">
+                Generate Brief
+            </button>
+            <div id="loadingIndicator" class="hidden text-center mt-4">
+                <svg class="animate-spin h-8 w-8 text-sky-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                <p class="text-slate-400 mt-2">Generating your brief...</p>
+            </div>
+            <div id="generatedBriefOutput" class="mt-8 hidden p-6 bg-slate-800 rounded-lg shadow-inner">
+                <h4 class="text-2xl font-semibold text-white mb-4">Generated Project Brief</h4>
+                <div id="briefContent" class="text-slate-300 leading-relaxed whitespace-pre-wrap"></div>
+                <button id="copyToClipboardBtn" class="mt-4 bg-sky-600 text-white text-sm py-2 px-4 rounded-lg hover:bg-sky-500 transition-colors">
+                    Copy to Clipboard
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const openModalBtn = document.getElementById('openModalBtn');
+            const modal = document.getElementById('projectModal');
+            const closeBtn = document.querySelector('.close-btn');
+            const generateBriefBtn = document.getElementById('generateBriefBtn');
+            const projectIdeaInput = document.getElementById('projectIdeaInput');
+            const generatedBriefOutput = document.getElementById('generatedBriefOutput');
+            const briefContent = document.getElementById('briefContent');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const copyToClipboardBtn = document.getElementById('copyToClipboardBtn');
+
+            openModalBtn.addEventListener('click', () => {
+                modal.style.display = 'flex';
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            generateBriefBtn.addEventListener('click', async () => {
+                const userIdea = projectIdeaInput.value;
+                if (!userIdea) {
+                    briefContent.textContent = "Please enter a project idea.";
+                    generatedBriefOutput.style.display = 'block';
+                    return;
+                }
+
+                loadingIndicator.style.display = 'block';
+                generatedBriefOutput.style.display = 'none';
+                briefContent.textContent = '';
+
+                const prompt = `You are an expert freelance full-stack developer. Based on the client's request, generate a detailed project brief. The brief should be professional and include sections like:
+                - Project Title
+                - Overview
+                - Key Features & Functionality
+                - Technology Stack (mention technologies from the resume like React, Django, PostgreSQL, etc., if they fit)
+                - Deliverables & Timeline
+                - Scope of Work
+
+                Client Request: "${userIdea}"`;
+
+                let chatHistory = [];
+                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                const payload = { contents: chatHistory };
+                const apiKey = "" 
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                let retries = 0;
+                const maxRetries = 5;
+                let response;
+
+                while (retries < maxRetries) {
+                    try {
+                        response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        if (response.status === 429) {
+                            retries++;
+                            const delay = Math.pow(2, retries) * 1000 + Math.random() * 1000;
+                            await new Promise(res => setTimeout(res, delay));
+                        } else {
+                            break;
+                        }
+                    } catch (error) {
+                        retries++;
+                        const delay = Math.pow(2, retries) * 1000 + Math.random() * 1000;
+                        await new Promise(res => setTimeout(res, delay));
+                    }
+                }
+
+                loadingIndicator.style.display = 'none';
+
+                if (!response.ok) {
+                    briefContent.textContent = "Sorry, something went wrong. Please try again.";
+                    generatedBriefOutput.style.display = 'block';
+                    return;
+                }
+
+                const result = await response.json();
+                const generatedText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (generatedText) {
+                    briefContent.textContent = generatedText;
+                    generatedBriefOutput.style.display = 'block';
+                } else {
+                    briefContent.textContent = "No brief was generated. Please try a different request.";
+                    generatedBriefOutput.style.display = 'block';
+                }
+            });
+
+            copyToClipboardBtn.addEventListener('click', () => {
+                const textToCopy = briefContent.textContent;
+                const textarea = document.createElement('textarea');
+                textarea.value = textToCopy;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                
+                // Optional: Provide visual feedback
+                const originalText = copyToClipboardBtn.textContent;
+                copyToClipboardBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyToClipboardBtn.textContent = originalText;
+                }, 2000);
+            });
+        });
+    </script>
+
+</body>
+</html>
